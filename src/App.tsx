@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import Alzhimer from './components/Alzhimer';
+import Alzheimer from './components/Alzheimer';
 import './App.css';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Alzhimer/>
+        <Alzheimer/>
       </header>
     </div>
   );
