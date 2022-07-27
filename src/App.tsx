@@ -3,16 +3,16 @@ import logo from './logo.svg';
 import Alzheimer from './components/Alzheimer';
 import Login from './components/Login';
 import './App.css';
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Alzheimer/>
-        <Login/>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Alzheimer/>
+      <Routes>
+        <Route path="/Login" element={<Login/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
