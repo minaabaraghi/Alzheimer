@@ -1,6 +1,15 @@
-import React from "react";
+import React,{useEffect} from "react";
+//import { axios } from 'axios';
 
 function Alzheimer() {
+    // useEffect(
+    //     ()=>{
+    //         (async()=>{
+    //             const {data}=await axios.get();
+    //         })
+
+    //     },[]
+    // )
     return ( 
         <div>
             <h2 className="mt-5 text-center"> Welcome to Alzheimer App</h2>
