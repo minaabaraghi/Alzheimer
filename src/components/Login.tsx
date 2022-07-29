@@ -10,7 +10,7 @@ class LoginComponent extends React.Component {
   login() {
     new LoginService().login("abbasi", "123")
       .then(result => {
-        console.log(result);
+        console.log(result.data);
       })
   }
   render(): React.ReactNode {
