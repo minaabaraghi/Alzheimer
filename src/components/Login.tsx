@@ -1,17 +1,14 @@
 import React from "react";
-import LoginService from "../services/login";
+import login from "../services/login"
 
 class LoginComponent extends React.Component {
-  loginService: LoginService;
   constructor(props: any) {
     super(props);
-    this.loginService = new LoginService();
   }
   login() {
-    new LoginService().login("abbasi", "123")
-      .then(result => {
-        console.log(result.data);
-      })
+    login("abbasi", "123").then(result => {
+      console.log(result);
+    })
   }
   render(): React.ReactNode {
     return (

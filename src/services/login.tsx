@@ -1,9 +1,15 @@
-import axios, { AxiosResponse } from "axios";
 
-export default class LoginService {
-    apiBaseUrl = "https://pori-movie-collection.herokuapp.com/api/";
+import { AxiosRequestConfig } from "axios"
+import axiosInstance from "./axiosInstance"
 
-    login(username: string, password: string): Promise<AxiosResponse<string>> {
-        return axios.post(this.apiBaseUrl + "auth", { username: username, password: password });
+const login = (username: string, password: string): Promise<any> => {
+    const reqConfig: AxiosRequestConfig = {
+        method: 'POST',
+        url: 'auth',
+        data: { username, password }
     }
+
+    return axiosInstance(reqConfig).then((res) => res.data);
 }
+
+export default login;
