@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import login from "../services/login";
-
+import {Navigate} from "react-router-dom";
 //todo: Convert to funcation base
 export default function LoginComponent() {
   //todo: get username and password from form 
@@ -10,7 +10,8 @@ export default function LoginComponent() {
   const login1 = () => {
     login(email, password).then(result => {
       if (result) {
-        toast.success('ورود موفقیت آمیز')
+        toast.success('ورود موفقیت آمیز');
+        return <Navigate to="/" replace={true}/>;
       }
 
     })

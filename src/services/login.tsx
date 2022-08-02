@@ -11,11 +11,11 @@ const login = (username: string, password: string): Promise<boolean> => {
     }
 
     return axiosInstance(reqConfig).then((res) => {
-        localStorage.setItem('token', res.data);
         if (res.data) {
+            localStorage.setItem('token', res.data);
             return true;
         }
-        return true;
+        return false;
     });
 }
 

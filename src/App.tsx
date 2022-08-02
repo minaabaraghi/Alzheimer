@@ -8,7 +8,11 @@ import { ToastContainer } from 'react-toastify';
 function App() {
   const [navigate, setNavigate] = useState(false);
   if (navigate) {
-    return <Navigate to="/Login" />;
+    return (
+     
+    <Navigate to="/Login" replace={true} />
+    
+    )
   }
   return (
     <BrowserRouter>
