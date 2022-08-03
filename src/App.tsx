@@ -1,5 +1,6 @@
 import Alzheimer from './components/Alzheimer';
 import Login from "./components/Login";
+import UsersList from './components/usersList';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
@@ -30,13 +31,14 @@ function App() {
           </div>
         </div>
       </header>
-
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Alzheimer />} />
         <Route path="/Login" element={<Login />} />
       </Routes>
+      <UsersList/>
     </BrowserRouter>
+
   );
 }
 
