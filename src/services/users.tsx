@@ -6,11 +6,13 @@ const users = (): Promise<boolean> => {
     const reqConfig: AxiosRequestConfig = {
         method: 'GEt',
         url: 'users',
-        data: {  }
+        data: { }
     }
 
     return axiosInstance(reqConfig).then((res) => {
         if (res.data) {
+            console.log(res.data,'res.data');
+            
             return true;
         }
             return false;

@@ -1,6 +1,9 @@
 import React from 'react'
 
-export default function CardList() {
+interface dataList{
+  list:any;
+}
+export default function CardList(props:dataList) {
   return (
     <div>
         <ul>
