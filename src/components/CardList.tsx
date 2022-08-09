@@ -20,7 +20,8 @@ export default function CardList(props: dataList) {
   <tbody className="thead-dark">
     
   {(props.list).map((item: any, index: number) => {
-        return (<tr key={index}><th scope="row">{index}</th> <td>{item.firstName}</td><td>{item.lastName}</td><td>{item.username}</td> </tr>)
+      index+=1;
+        return (<tr key={++index}><th scope="row">{index}</th> <td>{item.firstName}</td><td>{item.lastName}</td><td>{item.username}</td> </tr>)
 
       })}
      
