@@ -6,7 +6,7 @@ const users = (): Promise<boolean> => {
     const reqConfig: AxiosRequestConfig = {
         method: 'GEt',
         url: 'users',
-        data: { }
+        
     }
 
     return axiosInstance(reqConfig).then((res) => {
