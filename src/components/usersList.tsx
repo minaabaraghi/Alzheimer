@@ -3,11 +3,14 @@ import users from '../services/users';
 import CardList from '../components/CardList';
 
 export default function UsersList() {
-  const [user, setUser] = useState([{ id: 12, name: "pouria" }, { id: 20, name: "mahshad" }]);
+  const [user, setUser] = useState([{ }]);
   useEffect(() => {
-    users().then(res => {
+     users().then(res => {
       console.log(res);
+      setUser(res);
     });
+    
+    
   }, [])
   return (
     <div>
