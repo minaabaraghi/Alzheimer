@@ -6,9 +6,12 @@ interface dataList{
 export default function CardList(props:dataList) {
   return (
     <div>
-        <ul>
-            <li></li>
-        </ul>
+        
+            {(props.list).map((item:any,index:number)=>{
+               return (<div key={index}>{item.name}</div>)
+                
+            })}
+        
     </div>
   )
 }
