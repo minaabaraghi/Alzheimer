@@ -5,6 +5,9 @@ const users = (): Promise<any[]> => {
     const reqConfig: AxiosRequestConfig = {
         method: 'GEt',
         url: 'users',
+        headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token')
+        }
 
     }
 

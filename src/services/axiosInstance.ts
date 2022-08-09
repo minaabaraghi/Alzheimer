@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
 	headers: {
 		'Content-Type': 'application/json',
 		accept: '/',
-		Authorization: 'Bearer ' + localStorage.getItem('token')
+		// Authorization: 'Bearer ' + localStorage.getItem('token')
 	}
 })
 axiosInstance.interceptors.response.use(
