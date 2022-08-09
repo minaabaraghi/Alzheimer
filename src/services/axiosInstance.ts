@@ -6,7 +6,8 @@ const axiosInstance = axios.create({
 	baseURL: 'https://pori-movie-collection.herokuapp.com/api/',
 	headers: {
 		'Content-Type': 'application/json',
-		accept: '/'
+		accept: '/',
+		Authorization: 'Bearer ' + localStorage.getItem('token')
 	}
 })
 axiosInstance.interceptors.response.use(

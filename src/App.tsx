@@ -26,7 +26,7 @@ function App() {
 
             <div className="text-end">
               <Link to="/login" className="btn btn-outline-light me-2">Login</Link>
-              <Link to="/soon" className="btn btn-outline-light me-2">soon</Link>
+              <Link to="/User-List" className="btn btn-outline-light me-2">User List</Link>
             </div>
           </div>
         </div>
@@ -35,8 +35,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Alzheimer />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/User-List" element={<UsersList />} />
       </Routes>
-      <UsersList/>
     </BrowserRouter>
 
   );

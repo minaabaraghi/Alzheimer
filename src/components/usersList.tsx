@@ -1,15 +1,17 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import users from '../services/users';
 import CardList from '../components/CardList';
 
 export default function UsersList() {
-    const [user,setUser]=useState([{id:12,name:"pouria"},{id:20,name:"mahshad"}]);
-        useEffect(() => {
-      users();
-      }, [])
+  const [user, setUser] = useState([{ id: 12, name: "pouria" }, { id: 20, name: "mahshad" }]);
+  useEffect(() => {
+    users().then(res => {
+      console.log(res);
+    });
+  }, [])
   return (
     <div>
-            <CardList list={user} />
+      <CardList list={user} />
     </div>
   )
 }
