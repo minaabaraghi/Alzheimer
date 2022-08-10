@@ -6,6 +6,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { useState } from "react";
 import { ToastContainer } from 'react-toastify';
+import Register from './components/Register';
 function App() {
   const [navigate, setNavigate] = useState(false);
   if (navigate) {
@@ -26,6 +27,7 @@ function App() {
 
             <div className="text-end">
               <Link to="/login" className="btn btn-outline-light me-2">Login</Link>
+              <Link to="/Register" className="btn btn-outline-light me-2">Register</Link>
               <Link to="/User-List" className="btn btn-outline-light me-2">User List</Link>
             </div>
           </div>
@@ -35,6 +37,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Alzheimer />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/Register" element={<Register />} />
         <Route path="/User-List" element={<UsersList />} />
       </Routes>
     </BrowserRouter>
