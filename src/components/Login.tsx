@@ -5,10 +5,10 @@ import {Navigate} from "react-router-dom";
 //todo: Convert to funcation base
 export default function LoginComponent() {
   //todo: get username and password from form 
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const login1 = () => {
-    login(email, password).then(result => {
+    login(username, password).then(result => {
       if (result) {
         toast.success('ورود موفقیت آمیز');
         return <Navigate to="/" replace={true}/>;
@@ -21,8 +21,8 @@ export default function LoginComponent() {
       <form>
         <h1 className="h3 mb-3 fw-normal text-center"> login in</h1>
         <div className="form-floating">
-          <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" onChange={e => setEmail(e.target.value)} />
-          <label htmlFor="floatingInput">Email address</label>
+          <input  className="form-control" id="floatingInput" placeholder="user name" onChange={e => setUsername(e.target.value)} />
+          <label htmlFor="floatingInput">user name</label>
         </div>
         <div className="form-floating">
           <input type="password" className="form-control" id="floatingPassword" placeholder="Password" onChange={e => setPassword(e.target.value)} />
