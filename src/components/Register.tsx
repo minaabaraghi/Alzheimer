@@ -66,7 +66,7 @@ const Register = () => {
           />
           <label htmlFor="username">user name</label>
         </div>
-        {formik.touched.username && formik.errors.username ? (<div className='fieldsErrorRegister'>{formik.errors.username} hhh</div>) :null}
+        {formik.touched.username && formik.errors.username ? (<div className='fieldsErrorRegister'>{formik.errors.username} </div>) :null}
         <br/>
         <div className="form-floating">
           <input type="password" className="form-control"  placeholder='password'
