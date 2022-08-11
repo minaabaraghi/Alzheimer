@@ -5,6 +5,7 @@ import {Navigate} from "react-router-dom";
 import axios from 'axios';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
+import './styles.css';
 const Register = () => {
   
     // const userRegex=/^[a-zA-Z][s-zA-Z0-9-_]{3,23}$/;
@@ -51,7 +52,7 @@ const Register = () => {
                 />
                 <label htmlFor='firstName'>first Name</label>
             </div>
-            {formik.touched.firstName && formik.errors.firstName ? (<div>{formik.errors.firstName}</div>) :null}
+            {formik.touched.firstName && formik.errors.firstName ? (<div className='fieldsErrorRegister'>{formik.errors.firstName}</div>) :null}
             <br/>
         <div className="form-floating">
                 <input className="form-control" placeholder="Name"
@@ -59,7 +60,7 @@ const Register = () => {
                 />
                 <label htmlFor='lastName'>last Name</label>
             </div>
-            {formik.touched.lastName && formik.errors.lastName ? (<div>{formik.errors.lastName}</div>) :null}
+            {formik.touched.lastName && formik.errors.lastName ? (<div className='fieldsErrorRegister'>{formik.errors.lastName}</div>) :null}
             <br/>
         <div className="form-floating">
           <input  className="form-control" placeholder='user name'
@@ -67,7 +68,7 @@ const Register = () => {
           />
           <label htmlFor="username">user name</label>
         </div>
-        {formik.touched.username && formik.errors.username ? (<div>{formik.errors.username} hhh</div>) :null}
+        {formik.touched.username && formik.errors.username ? (<div className='fieldsErrorRegister'>{formik.errors.username} hhh</div>) :null}
         <br/>
         <div className="form-floating">
           <input type="password" className="form-control"  placeholder='password'
@@ -75,12 +76,12 @@ const Register = () => {
           />
           <label htmlFor="password">Password</label>
         </div>
-        {formik.touched.password && formik.errors.password ? (<div>{formik.errors.password}</div>) :null}
+        {formik.touched.password && formik.errors.password ? (<div className='fieldsErrorRegister'>{formik.errors.password}</div>) :null}
         <div className="form-floating">
           <input type="password" className="form-control" placeholder='RePassword' id='RePassword' {...formik.getFieldProps('RePassword')} />
           <label htmlFor="RePassword">Re-Password</label>
         </div>
-        {formik.touched.RePassword && formik.errors.RePassword ? (<div>{formik.errors.RePassword}</div>) :null}
+        {formik.touched.RePassword && formik.errors.RePassword ? (<div className='fieldsErrorRegister'>{formik.errors.RePassword}</div>) :null}
         <button className="w-100 btn btn-lg btn-primary" type="button" onClick={register1} >Register</button>
       </form>
     </main>
