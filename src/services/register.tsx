@@ -3,12 +3,12 @@ import { AxiosRequestConfig } from "axios"
 import { json } from "stream/consumers";
 import axiosInstance from "./axiosInstance"
 import axios from 'axios';
-const register = (formValues: { firstName: string; lastName: string; username: string; password: string; }): Promise<boolean> => {
-    //todo: save jwt to localstorage then return true/false
+const register = (): Promise<boolean> => {
+    
     const reqConfig: AxiosRequestConfig = {
         method: 'POST',
         url: 'users',
-        // body: JSON.stringify(formValues)
+        // body: JSON.stringify()
         
     }
 

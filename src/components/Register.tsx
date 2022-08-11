@@ -7,9 +7,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import './styles.css';
 const Register = () => {
-  
-    // const userRegex=/^[a-zA-Z][s-zA-Z0-9-_]{3,23}$/;
-    // const pwdRegex=/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+ 
   const formik = useFormik({
     initialValues:{
       firstName:'',
