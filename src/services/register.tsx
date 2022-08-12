@@ -6,16 +6,16 @@ const register = (firstName:string,lastName:string,username:string,password:stri
     const reqConfig: AxiosRequestConfig = {
         method: 'POST',
         url: 'users',
+        headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token')
+        },
         data:{firstName,lastName,username,password},
                
     }
 
     return axiosInstance(reqConfig).then((res) => {
-        if (res.data) {
-            localStorage.setItem('token', res.data);
-            return true;
-        }
-        return false;
+      return res.data;
+       
     });
 }
 
