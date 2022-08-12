@@ -19,6 +19,7 @@ const Register = () => {
     onSubmit:(values)=>{
       const val12=JSON.stringify(values);
     },
+  
     validationSchema:Yup.object({
       firstName:Yup.string().max(30,"first name maximun 30 char").required('Required'),
       lastName:Yup.string().max(50,"last name maximun 50 char").required('Required'),
@@ -31,14 +32,14 @@ const Register = () => {
 
  
     const register1 = () => {
-        // register().then(result => {
+        register(formik.values.firstName,formik.values.lastName,formik.values.username,formik.values.password).then(result => {
           
-        //   if (result) {
-        //     toast.success('ثبت موفقیت آمیز');
-        //     return <Navigate to="/" replace={true}/>;
-        //   }
+          if (result) {
+            toast.success('ثبت موفقیت آمیز');
+            return <Navigate to="/" replace={true}/>;
+          }
     
-        // })
+        })
       }
   return (
     <main className="form-signin w-100 m-auto">

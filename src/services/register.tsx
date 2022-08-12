@@ -1,15 +1,13 @@
 
 import { AxiosRequestConfig } from "axios"
-import { json } from "stream/consumers";
 import axiosInstance from "./axiosInstance"
 import axios from 'axios';
-const register = (): Promise<boolean> => {
-    
+const register = (firstName:string,lastName:string,username:string,password:string): Promise<boolean> => {
     const reqConfig: AxiosRequestConfig = {
         method: 'POST',
         url: 'users',
-        // body: JSON.stringify()
-        
+        data:{firstName,lastName,username,password},
+               
     }
 
     return axiosInstance(reqConfig).then((res) => {
