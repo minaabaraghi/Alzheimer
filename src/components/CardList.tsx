@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
@@ -7,16 +7,18 @@ import {dataList} from './models';
 import { toast } from "react-toastify";
 import deleteUser from '../services/deleteUser';
 import {Navigate} from "react-router-dom";
-export default function CardList(props: dataList) {
+export default function CardList({list}: dataList) {
+  const [userList,setUserList]=useState(list)
+  console.log(userList,'userList');
+  console.log(list,'list');
+  
   const onDelete=(id:any)=>{
-    //(props.list).filter((item:any)=>item._id !== id);
-    console.log(id,'del');
+    setUserList((userList).filter((item:any)=>item._id !== id));
     deleteUser(id).then(result => {
           
       if (result) {
         toast.success('کاربر با موفقیت حذف شد');
-        return <Navigate to="/" replace={true}/>;
-      }
+              }
 
     })
     
@@ -38,8 +40,10 @@ export default function CardList(props: dataList) {
   </thead >
   <tbody className="thead-dark">
     
-  {(props.list).map((item: any, index: number) => {
+  {(list).map((item: any, index: number) => {
       index+=1;
+      console.log(item,'itemm');
+      
         return (<tr key={++index}>
                   <th scope="row">{index}</th> 
                   <td>{item.firstName}</td>
