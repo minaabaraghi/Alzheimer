@@ -3,9 +3,8 @@ import BtnEdit from './BtnEdit';
 import BtnDelete from './BtnDelete';
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-interface dataList {
-  list: any;
-}
+import {dataList} from './models';
+
 export default function CardList(props: dataList) {
   return (
     <div>
@@ -26,7 +25,14 @@ export default function CardList(props: dataList) {
     
   {(props.list).map((item: any, index: number) => {
       index+=1;
-        return (<tr key={++index}><th scope="row">{index}</th> <td>{item.firstName}</td><td>{item.lastName}</td><td>{item.username}</td> <td> <BtnEdit/></td> <td> <BtnDelete/></td></tr>)
+        return (<tr key={++index}>
+                  <th scope="row">{index}</th> 
+                  <td>{item.firstName}</td>
+                  <td>{item.lastName}</td>
+                  <td>{item.username}</td>
+                  <td> <BtnEdit/></td> <td>
+                  <BtnDelete/></td>
+               </tr>)
 
       })}
      

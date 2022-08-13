@@ -2,7 +2,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 import React from 'react'
 
-function BtnEdit() {
+function BtnEdit(UserId:any) {
   return (
     <div>
         <DeleteIcon/>
