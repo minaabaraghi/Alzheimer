@@ -1,10 +1,12 @@
 import { AxiosRequestConfig } from "axios"
 import axiosInstance from "./axiosInstance"
 
-const deleteUser = (): Promise<any[]> => {
+const deleteUser = (id:any): Promise<any[]> => {
+    console.log(id,'id del');
+    
     const reqConfig: AxiosRequestConfig = {
         method: 'DELETE',
-        url: 'users',
+        url: `users/${id}`,
         headers: {
             Authorization: 'Bearer ' + localStorage.getItem('token')
         }

@@ -16,7 +16,7 @@ const Register = () => {
       password:'',
       RePassword:'',
     },
-    onSubmit:(values)=>{
+    onSubmit:(values:any)=>{
       const val12=JSON.stringify(values);
     },
   
