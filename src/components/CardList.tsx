@@ -4,8 +4,13 @@ import BtnDelete from './BtnDelete';
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import {dataList} from './models';
-
+import DeleteIcon from '@mui/icons-material/Delete';
 export default function CardList(props: dataList) {
+  const onDelete=(id:any)=>{
+    //(props.list).filter((item:any)=>item._id !== id);
+    console.log(id,'del');
+    
+  }
   return (
     <div>
 <br/>
@@ -31,7 +36,7 @@ export default function CardList(props: dataList) {
                   <td>{item.lastName}</td>
                   <td>{item.username}</td>
                   <td> <BtnEdit/></td> <td>
-                  <BtnDelete/></td>
+                  <DeleteIcon onClick={()=>onDelete(item._id)}/></td>
                </tr>)
 
       })}
