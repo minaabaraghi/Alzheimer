@@ -6,10 +6,11 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import {dataList} from './models';
 import { toast } from "react-toastify";
 import deleteUser from '../services/deleteUser';
+import editeUser from '../services/editeUser';
 import {Navigate} from "react-router-dom";
 import users from '../services/users';
 
-export default function CardList({list}: dataList) {
+export default function CardList() {
   const [user, setUser] = useState([{ }]);
   useEffect(() => {
      users().then(res => {
@@ -19,11 +20,19 @@ export default function CardList({list}: dataList) {
   }, [user])
   const onDelete=(id:any)=>{
     deleteUser(id).then(result => {
-      //setTest((list).filter((item:any)=>item._id !== id)); 
+      
       if (result) {
         toast.success('کاربر با موفقیت حذف شد');
               }
-
+    })
+    
+  }
+  const onEditHandler=(id:any)=>{
+    editeUser(id).then(result => {
+      
+      if (result) {
+        toast.success('کاربر با موفقیت حذف شد');
+              }
     })
     
   }
@@ -53,7 +62,7 @@ export default function CardList({list}: dataList) {
                   <td>{item.firstName}</td>
                   <td>{item.lastName}</td>
                   <td>{item.username}</td>
-                  <td> <EditIcon/></td> <td>
+                  <td> <EditIcon onClick={()=>onEditHandler(item._id)}/></td> <td>
                   <DeleteIcon onClick={()=>onDelete(item._id)}/></td>
                </tr>)
 
