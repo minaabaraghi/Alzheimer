@@ -86,7 +86,7 @@ export default function CardList() {
                   <td>{item.firstName}</td>
                   <td>{item.lastName}</td>
                   <td>{item.username}</td>
-                  <td> <EditForm  firstName={item.firstName} lastName={item.lastName} username={item.username}  /></td> <td>
+                  <td> <EditForm  firstName={item.firstName} lastName={item.lastName} username={item.username} id={item._id} /></td> <td>
                   <DeleteIcon className='pointer' onClick={()=>onDelete(item._id)}/></td>
                </tr>)
 

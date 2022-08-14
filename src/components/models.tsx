@@ -7,5 +7,6 @@ export interface editeFormModels {
    lastName:string,
    username:string,
    password?:string,
+   id:any,
   }
   

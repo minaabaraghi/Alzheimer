@@ -8,7 +8,10 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import {editeFormModels} from './models';
-function EditForm({firstName,lastName,username}:editeFormModels) {
+import editeUser from '../services/editeUser';
+import { toast } from "react-toastify";
+
+function EditForm({id,firstName,lastName,username}:editeFormModels) {
   const [open, setOpen] = React.useState(false);
   const [firstname, setFirstname] = useState(firstName);
   const [lastname, setLastname] = useState(lastName);
@@ -19,6 +22,18 @@ function EditForm({firstName,lastName,username}:editeFormModels) {
 
   const handleClose = () => {
     setOpen(false);
+  };
+  const handleEdit = () => {
+    editeUser(id,firstname,lastname,userName).then(result => {
+          
+      if (result) {
+        toast.success('ویرایش موفقیت آمیز');
+        // return <Navigate to="/" replace={true}/>;
+      }
+
+    })
+    setOpen(false);
+
   };
   return (
     <div>
@@ -63,7 +78,7 @@ function EditForm({firstName,lastName,username}:editeFormModels) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Subscribe</Button>
+          <Button onClick={handleEdit}>Subscribe</Button>
         </DialogActions>
       </Dialog>
     </div>
