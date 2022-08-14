@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
@@ -7,15 +7,19 @@ import {dataList} from './models';
 import { toast } from "react-toastify";
 import deleteUser from '../services/deleteUser';
 import {Navigate} from "react-router-dom";
+import users from '../services/users';
+
 export default function CardList({list}: dataList) {
-  const [userList,setUserList]=useState(list)
-  console.log(userList,'userList');
-  console.log(list,'list');
-  
+  const [user, setUser] = useState([{ }]);
+  useEffect(() => {
+     users().then(res => {
+      console.log(res);
+      setUser(res);
+    });
+  }, [user])
   const onDelete=(id:any)=>{
-    setUserList((userList).filter((item:any)=>item._id !== id));
     deleteUser(id).then(result => {
-          
+      //setTest((list).filter((item:any)=>item._id !== id)); 
       if (result) {
         toast.success('کاربر با موفقیت حذف شد');
               }
@@ -40,7 +44,7 @@ export default function CardList({list}: dataList) {
   </thead >
   <tbody className="thead-dark">
     
-  {(list).map((item: any, index: number) => {
+  {(user).map((item: any, index: number) => {
       index+=1;
       console.log(item,'itemm');
       
