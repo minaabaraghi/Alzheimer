@@ -11,6 +11,9 @@ import {Navigate} from "react-router-dom";
 import users from '../services/users';
 import { confirmAlert } from 'react-confirm-alert'; 
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
+import EditForm from './EditForm';
+import './styles.css';
+
 export default function CardList() {
   const [user, setUser] = useState([{ }]);
   useEffect(() => {
@@ -18,7 +21,7 @@ export default function CardList() {
       console.log(res);
       setUser(res);
     });
-  }, [user])
+  }, [])
   const onDelete=(id:any)=>{
 
     confirmAlert({
@@ -48,15 +51,15 @@ export default function CardList() {
     });
 
   }
-  const onEditHandler=(id:any)=>{
-    editeUser(id).then(result => {
+  // const onEditHandler=(id:any)=>{
+  //   editeUser(id).then(result => {
       
-      if (result) {
-        toast.success('کاربر با موفقیت حذف شد');
-              }
-    })
+  //     if (result) {
+  //       toast.success('کاربر با موفقیت حذف شد');
+  //             }
+  //   })
     
-  }
+  // }
   return (
     <div>
 <br/>
@@ -83,8 +86,8 @@ export default function CardList() {
                   <td>{item.firstName}</td>
                   <td>{item.lastName}</td>
                   <td>{item.username}</td>
-                  <td> <EditIcon onClick={()=>onEditHandler(item._id)}/></td> <td>
-                  <DeleteIcon onClick={()=>onDelete(item._id)}/></td>
+                  <td> <EditForm  firstName={item.firstName} lastName={item.lastName} username={item.username}  /></td> <td>
+                  <DeleteIcon className='pointer' onClick={()=>onDelete(item._id)}/></td>
                </tr>)
 
       })}
