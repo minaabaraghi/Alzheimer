@@ -10,7 +10,9 @@ import DialogTitle from '@mui/material/DialogTitle';
 import {editeFormModels} from './models';
 function EditForm({firstName,lastName,username}:editeFormModels) {
   const [open, setOpen] = React.useState(false);
-   
+  const [firstname, setFirstname] = useState(firstName);
+  const [lastname, setLastname] = useState(lastName);
+  const [userName, setUserName] = useState(username);
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -32,30 +34,30 @@ function EditForm({firstName,lastName,username}:editeFormModels) {
             autoFocus
             margin="dense"
             id="firstName"
-            
-            
+            sx={{width:'300px',alignItems:'center'}}
+            onChange={e => setFirstname(e.target.value)}
             variant="standard"
-            value={firstName}
+            value={firstname}
           />
           <br/>
           <TextField
             autoFocus
             margin="dense"
             id="lastName"
-            
-            
+            sx={{width:'300px',alignItems:'center'}}
+            onChange={e => setLastname(e.target.value)}
             variant="standard"
-            value={lastName}
+            value={lastname}
           />
           <br/>
           <TextField
             autoFocus
             margin="dense"
             id="username"
-            
-            
+            sx={{width:'300px',alignItems:'center'}}
+            onChange={e => setUserName(e.target.value)}
             variant="standard"
-            value={username}
+            value={userName}
           />
           
         </DialogContent>
