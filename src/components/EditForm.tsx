@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -10,12 +10,19 @@ import DialogTitle from '@mui/material/DialogTitle';
 import {editeFormModels} from './models';
 import editeUser from '../services/editeUser';
 import { toast } from "react-toastify";
-
+import users from '../services/users';
 function EditForm({id,firstName,lastName,username}:editeFormModels) {
   const [open, setOpen] = React.useState(false);
   const [firstname, setFirstname] = useState(firstName);
   const [lastname, setLastname] = useState(lastName);
   const [userName, setUserName] = useState(username);
+  const [user, setUser] = useState([{ }]);
+  useEffect(() => {
+    users().then(res => {
+     console.log(res);
+     setUser(res);
+   });
+ }, [])
   const handleClickOpen = () => {
     setOpen(true);
   };

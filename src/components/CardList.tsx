@@ -16,12 +16,7 @@ import './styles.css';
 
 export default function CardList() {
   const [user, setUser] = useState([{ }]);
-  useEffect(() => {
-     users().then(res => {
-      console.log(res);
-      setUser(res);
-    });
-  }, [])
+
   const onDelete=(id:any)=>{
 
     confirmAlert({
@@ -60,6 +55,12 @@ export default function CardList() {
   //   })
     
   // }
+  useEffect(() => {
+    users().then(res => {
+     console.log(res);
+     setUser(res);
+   });
+ }, [onDelete])
   return (
     <div>
 <br/>
