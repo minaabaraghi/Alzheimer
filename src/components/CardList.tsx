@@ -47,7 +47,7 @@ export default function CardList() {
       console.log(res);
       setUser(res);
     });
-  }, [onDelete]);
+  }, [user]);
   return (
     <div>
       <br />
