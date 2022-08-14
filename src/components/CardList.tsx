@@ -9,7 +9,8 @@ import deleteUser from '../services/deleteUser';
 import editeUser from '../services/editeUser';
 import {Navigate} from "react-router-dom";
 import users from '../services/users';
-
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
 export default function CardList() {
   const [user, setUser] = useState([{ }]);
   useEffect(() => {
@@ -19,13 +20,33 @@ export default function CardList() {
     });
   }, [user])
   const onDelete=(id:any)=>{
-    deleteUser(id).then(result => {
+
+    confirmAlert({
+      title: 'Confirm to delete',
+      message: 'Are you sure to do this.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: (
+            
+          ) => {
+            deleteUser(id).then(result => {
       
-      if (result) {
-        toast.success('کاربر با موفقیت حذف شد');
-              }
-    })
-    
+              if (result) {
+                toast.success('کاربر با موفقیت حذف شد');
+                      }
+            })
+          }
+        },
+        {
+          label: 'No',
+          onClick: () => {
+            return true
+          }
+        }
+      ]
+    });
+
   }
   const onEditHandler=(id:any)=>{
     editeUser(id).then(result => {
