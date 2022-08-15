@@ -21,8 +21,8 @@ function EditForm({ id, getUserAfterPUT }: editeFormModels) {
   const [user, setUser] = useState([{}]);
   const handleClickOpen = (id: any) => {
     getUser(id).then((res) => {
-      setFirstname(res.username);
-      setLastname(res.firstName);
+      setFirstname(res.firstname);
+      setLastname(res.lastName);
       setUserName(res.username);
     });
     setOpen(true);
