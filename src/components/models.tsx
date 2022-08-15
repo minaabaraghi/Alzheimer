@@ -3,9 +3,10 @@ export interface dataList {
   list: any;
 }
 export interface editeFormModels {
-  firstName: string;
-  lastName: string;
-  username: string;
+  firstName?: string;
+  lastName?: string;
+  username?: string;
   password?: string;
-  id: any;
+  id?: any;
+ 
 }

@@ -13,10 +13,10 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import EditForm from "./EditForm";
 import "./styles.css";
+import getUser from "../services/getUser";
 
 export default function CardList() {
   const [user, setUser] = useState([{}]);
-
   const onDelete = (id: any) => {
     confirmAlert({
       title: "Confirm to delete",
@@ -47,7 +47,7 @@ export default function CardList() {
       console.log(res);
       setUser(res);
     });
-  }, [user]);
+  }, []);
   return (
     <div>
       <br />
@@ -70,8 +70,6 @@ export default function CardList() {
         <tbody className="thead-dark">
           {user.map((item: any, index: number) => {
             index += 1;
-            console.log(item, "itemm");
-
             return (
               <tr key={++index}>
                 <th scope="row">{index}</th>
@@ -81,10 +79,7 @@ export default function CardList() {
                 <td>
                   {" "}
                   <EditForm
-                    firstName={item.firstName}
-                    lastName={item.lastName}
-                    username={item.username}
-                    id={item._id}
+                      id={item._id}
                   />
                 </td>{" "}
                 <td>

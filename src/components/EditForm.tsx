@@ -11,19 +11,28 @@ import { editeFormModels } from "./models";
 import editeUser from "../services/editeUser";
 import { toast } from "react-toastify";
 import users from "../services/users";
-function EditForm({ id, firstName, lastName, username }: editeFormModels) {
+import getUser from "../services/getUser";
+
+function EditForm({ id }: editeFormModels) {
   const [open, setOpen] = React.useState(false);
-  const [firstname, setFirstname] = useState(firstName);
-  const [lastname, setLastname] = useState(lastName);
-  const [userName, setUserName] = useState(username);
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [userName, setUserName] = useState('');
   const [user, setUser] = useState([{}]);
   useEffect(() => {
     users().then((res) => {
-      console.log(res);
-      setUser(res);
+        setUser(res);
     });
+
   }, []);
-  const handleClickOpen = () => {
+  const handleClickOpen = (id:any) => {
+    getUser(id).then((res) => {
+      // setFirstname(res.username);
+      // setLastname(res.firstName);
+      // setUserName(res.username);
+      console.log(res,res,'get user api');
+      
+    });
     setOpen(true);
   };
 
@@ -41,7 +50,7 @@ function EditForm({ id, firstName, lastName, username }: editeFormModels) {
   };
   return (
     <div>
-      <EditIcon className="pointer" onClick={handleClickOpen} />
+      <EditIcon className="pointer" onClick={()=>handleClickOpen(id)} />
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Edit User</DialogTitle>
         <DialogContent>
