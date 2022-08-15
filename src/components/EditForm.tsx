@@ -43,7 +43,7 @@ function EditForm({ id, firstName, lastName, username }: editeFormModels) {
     <div>
       <EditIcon className="pointer" onClick={handleClickOpen} />
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Subscribe</DialogTitle>
+        <DialogTitle>Edit User</DialogTitle>
         <DialogContent>
           <DialogContentText>
             please enter your data here. We will send updates occasionally.
@@ -80,7 +80,7 @@ function EditForm({ id, firstName, lastName, username }: editeFormModels) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleEdit}>Subscribe</Button>
+          <Button onClick={handleEdit}>Update</Button>
         </DialogActions>
       </Dialog>
     </div>
