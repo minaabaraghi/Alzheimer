@@ -17,6 +17,18 @@ import getUser from "../services/getUser";
 
 export default function CardList() {
   const [user, setUser] = useState([{}]);
+
+  useEffect(() => {
+    users().then((res) => {
+      setUser(res);
+    });
+  }, []);
+  const getUserAfterPUT = () => {
+    users().then((res) => {
+      setUser(res);
+    });
+  };
+
   const onDelete = (id: any) => {
     confirmAlert({
       title: "Confirm to delete",
@@ -28,6 +40,10 @@ export default function CardList() {
             deleteUser(id).then((result) => {
               if (result) {
                 toast.success("کاربر با موفقیت حذف شد");
+                users().then((res) => {
+                  console.log(res);
+                  setUser(res);
+                });
               }
             });
           },
@@ -42,12 +58,6 @@ export default function CardList() {
     });
   };
 
-  useEffect(() => {
-    users().then((res) => {
-      console.log(res);
-      setUser(res);
-    });
-  }, []);
   return (
     <div>
       <br />
@@ -78,9 +88,7 @@ export default function CardList() {
                 <td>{item.username}</td>
                 <td>
                   {" "}
-                  <EditForm
-                      id={item._id}
-                  />
+                  <EditForm id={item._id} getUserAfterPUT={getUserAfterPUT} />
                 </td>{" "}
                 <td>
                   <DeleteIcon

@@ -8,5 +8,5 @@ export interface editeFormModels {
   username?: string;
   password?: string;
   id?: any;
- 
+  getUserAfterPUT?: any;
 }
