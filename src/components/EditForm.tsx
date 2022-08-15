@@ -48,9 +48,11 @@ function EditForm({ id, firstName, lastName, username }: editeFormModels) {
           <DialogContentText>
             please enter your data here. We will send updates occasionally.
           </DialogContentText>
+          <br/>
+          <label style={{color:"#31baf5"}} htmlFor="firstName">firstName:</label>
           <TextField
             autoFocus
-            margin="dense"
+            
             id="firstName"
             sx={{ width: "300px", alignItems: "center" }}
             onChange={(e) => setFirstname(e.target.value)}
@@ -58,9 +60,11 @@ function EditForm({ id, firstName, lastName, username }: editeFormModels) {
             value={firstname}
           />
           <br />
+          <br />
+          <label style={{color:"#31baf5"}} htmlFor="lastName">lastName:</label>
           <TextField
             autoFocus
-            margin="dense"
+            
             id="lastName"
             sx={{ width: "300px", alignItems: "center" }}
             onChange={(e) => setLastname(e.target.value)}
@@ -68,9 +72,11 @@ function EditForm({ id, firstName, lastName, username }: editeFormModels) {
             value={lastname}
           />
           <br />
+          <br />
+          <label style={{color:"#31baf5"}} htmlFor="username">username:</label>
           <TextField
             autoFocus
-            margin="dense"
+            
             id="username"
             sx={{ width: "300px", alignItems: "center" }}
             onChange={(e) => setUserName(e.target.value)}
