@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { useState } from "react";
 import { ToastContainer } from 'react-toastify';
 import Register from './components/Register';
+import PrivateRoutes from './utils/PrivateRoutes'
 function App() {
   const [navigate, setNavigate] = useState(false);
   if (navigate) {
@@ -35,10 +36,13 @@ function App() {
       </header>
       <ToastContainer />
       <Routes>
+      <Route element={<PrivateRoutes />}>
+
         <Route path="/" element={<Alzheimer />} />
-        <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/User-List" element={<UsersList />} />
+      </Route>
+        <Route path="/Login" element={<Login />} />
       </Routes>
     </BrowserRouter>
 
