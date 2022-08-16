@@ -8,6 +8,7 @@ import { useState } from "react";
 import { ToastContainer } from 'react-toastify';
 import Register from './components/Register';
 import PrivateRoutes from './utils/PrivateRoutes'
+import SideMenue from './components/uiBody/SideMenue';
 function App() {
   const [navigate, setNavigate] = useState(false);
   if (navigate) {
@@ -34,10 +35,11 @@ function App() {
           </div>
         </div>
       </header>
+      <SideMenue/>
       <ToastContainer />
       <Routes>
       <Route element={<PrivateRoutes />}>
-
+        
         <Route path="/" element={<Alzheimer />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/User-List" element={<UsersList />} />
