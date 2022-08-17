@@ -15,15 +15,13 @@ function HeaderMenue() {
             </ul>
 
             <div className="text-end">
-              <Link to="/login" className="btn btn-outline-light me-2">
+              {/* {<Link to="/login" className="btn btn-outline-light me-2">
                 Login
+              </Link>} */}
+              <Link to="#" className="btn btn-outline-light me-2">
+                Sign In
               </Link>
-              <Link to="/Register" className="btn btn-outline-light me-2">
-                Register
-              </Link>
-              <Link to="/User-List" className="btn btn-outline-light me-2">
-                User List
-              </Link>
+              
             </div>
           </div>
         </div>

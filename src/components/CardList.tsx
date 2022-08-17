@@ -14,6 +14,7 @@ import "react-confirm-alert/src/react-confirm-alert.css";
 import EditForm from "./EditForm";
 import "./styles.css";
 import getUser from "../services/getUser";
+import Register from "./Register";
 
 export default function CardList() {
   const [user, setUser] = useState([{}]);
@@ -60,6 +61,7 @@ export default function CardList() {
 
   return (
     <div className=" container_body container">
+      <Register getUserAfterPUT={getUserAfterPUT}/>
       <br />
 
       <table className="table ">

@@ -21,7 +21,6 @@ function App() {
         <Routes>
           <Route element={<PrivateRoutes />}>
             <Route path="/" element={<Alzheimer />} />
-            <Route path="/Register" element={<Register />} />
             <Route path="/User-List" element={<UsersList />} />
           </Route>
           <Route path="/Login" element={<Login />} />

@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import register from "../services/register";
 import { Navigate } from "react-router-dom";
+import Dialog from "@mui/material/Dialog";
 import axios from "axios";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import "./styles.css";
-const Register = () => {
+const Register = ({getUserAfterPUT}:{getUserAfterPUT:any}) => {
+  const [open, setOpen] = React.useState(false);
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -36,7 +38,12 @@ const Register = () => {
       ),
     }),
   });
-
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleClickOpen = () => {
+      setOpen(true);
+  };
   const register1 = () => {
     register(
       formik.values.firstName,
@@ -46,12 +53,18 @@ const Register = () => {
     ).then((result) => {
       if (result) {
         toast.success("ثبت موفقیت آمیز");
-        return <Navigate to="/" replace={true} />;
+        console.log(result,"mina");
+        
+        setOpen(false);
+        getUserAfterPUT();
+        formik.resetForm();
       }
     });
   };
   return (
-    <div className="container_body container">
+    <div >
+      <button className="pointer btn btn-primary " onClick={handleClickOpen} >Add User</button>
+      <Dialog open={open} onClose={handleClose}>
       <main className="form-signin w-100 m-auto " >
       <form>
         <h1 className="h3 mb-3 fw-normal text-center"> Register</h1>
@@ -124,12 +137,15 @@ const Register = () => {
           className="w-100 btn btn-lg btn-primary"
           type="button"
           onClick={register1}
+          disabled={!(formik.isValid && formik.dirty && formik.values.RePassword)}
         >
           Register
         </button>
       </form>
     </main>
+    </Dialog>
     </div>
+    
   );
 };
 
