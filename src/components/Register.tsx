@@ -51,7 +51,8 @@ const Register = () => {
     });
   };
   return (
-    <main className="form-signin w-100 m-auto">
+    <div className="container_body container">
+      <main className="form-signin w-100 m-auto " >
       <form>
         <h1 className="h3 mb-3 fw-normal text-center"> Register</h1>
         <div className="form-floating">
@@ -128,6 +129,7 @@ const Register = () => {
         </button>
       </form>
     </main>
+    </div>
   );
 };
 

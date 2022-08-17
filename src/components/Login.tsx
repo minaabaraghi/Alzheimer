@@ -1,24 +1,26 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import login from "../services/login";
-import { Navigate } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 //todo: Convert to funcation base
 export default function LoginComponent() {
   //todo: get username and password from form
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate=useNavigate();
   const login1 = () => {
     login(username, password).then((result) => {
       if (result) {
         toast.success("ورود موفقیت آمیز");
-        return <Navigate to="/" replace={true} />;
+        return navigate('/');
       }
     });
   };
   return (
-    <main className="form-signin w-100 m-auto">
+    <div>
+        <main className="form-signin w-100 m-auto login-page">
       <form>
-        <h1 className="h3 mb-3 fw-normal text-center"> login in</h1>
+        <h1 className="h3 mb-4 fw-normal text-center"> login in</h1>
         <div className="form-floating">
           <input
             className="form-control"
@@ -47,5 +49,8 @@ export default function LoginComponent() {
         </button>
       </form>
     </main>
+        <div className="minameee">@_minameee</div>
+    </div>
+
   );
 }

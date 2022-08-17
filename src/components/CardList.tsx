@@ -59,7 +59,7 @@ export default function CardList() {
   };
 
   return (
-    <div>
+    <div className=" container_body container">
       <br />
 
       <table className="table ">
