@@ -2,31 +2,29 @@ import React from "react";
 import { Link } from 'react-router-dom';
 function HeaderMenue() {
   return (
-    <div>
-      <header className="p-3  text-white" style={{ background: "#538ef5" }}>
-        <div className="container">
-          <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li>
-                <Link to="/" className="nav-link px-2 text-white">
-                  Alzheimer
-                </Link>
-              </li>
-            </ul>
-
-            <div className="text-end">
-              {/* {<Link to="/login" className="btn btn-outline-light me-2">
-                Login
-              </Link>} */}
-              <Link to="#" className="btn btn-outline-light me-2">
-                Sign In
-              </Link>
-              
-            </div>
-          </div>
-        </div>
-      </header>
-    </div>
+   
+          <nav className="navbar navbar-expand-lg navbar-light bg-light border-bottom test_wrapper">
+                    <div className="">
+                        <button className="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li className="nav-item active"><a className="nav-link" href="#!">Home</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#!">Link</a></li>
+                                <li className="nav-item dropdown">
+                                    <a className="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                    <div className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a className="dropdown-item" href="#!">Action</a>
+                                        <a className="dropdown-item" href="#!">Another action</a>
+                                        <div className="dropdown-divider"></div>
+                                        <a className="dropdown-item" href="#!">Something else here</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+   
   );
 }
 

@@ -60,7 +60,7 @@ export default function CardList() {
   };
 
   return (
-    <div className=" container_body container">
+    <div  className="test-content-wrapper">
       <Register getUserAfterPUT={getUserAfterPUT}/>
       <br />
 

@@ -15,7 +15,7 @@ function App() {
     return <Navigate to="/Login" replace={true} />;
   }
   return (
-    <div >
+    
       <BrowserRouter>
         <ToastContainer />
         <Routes>
@@ -26,7 +26,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
         </Routes>
       </BrowserRouter>
-    </div>
+  
   );
 }
 
