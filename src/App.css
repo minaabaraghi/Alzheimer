@@ -11425,7 +11425,5 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   margin-top: 100px !important;
   top:20;
   background-color: lightblue;
-  display: grid;
-  width: 100vw;
-  
+  display: grid;  
 }

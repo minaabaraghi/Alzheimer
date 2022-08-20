@@ -1,19 +1,19 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Provider } from 'react-redux';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import Layout from './components/layout/AppLayout';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    
+    <Layout>
       <App />
-    
+    </Layout>
   </React.StrictMode>
 );
 
